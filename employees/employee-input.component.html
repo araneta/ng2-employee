@@ -1,0 +1,169 @@
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-horizontal">
+	<div class="row">
+		<div class="col-md-6">
+				
+			<div class="form-group row">
+				<label for="photo" class="col-sm-4 form-control-label">Foto</label>
+				<div class="col-sm-8">										
+					<input type="file" name="photo" />
+				</div>
+			</div>										 
+			<div class="form-group row">
+				<label for="username" class="col-sm-4 form-control-label">NIP</label>
+				<div class="col-sm-8">										
+					<input type="text" name="username" required="" class="form-control"  [ngModel]="employee?.username"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="fname" class="col-sm-4 form-control-label">First Name</label>
+				<div class="col-sm-8">
+					<input type="text" name="firstName" required="" class="form-control"  [ngModel]="employee?.firstName"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="lname" class="col-sm-4 form-control-label">Last Name</label>
+				<div class="col-sm-8">
+					<input type="text" name="lastName" required="" class="form-control"  [ngModel]="employee?.lastName"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="password" class="col-sm-4 form-control-label">Password</label>
+				<div class="col-sm-8">
+					<input type="text" name="password" required="" class="form-control"  [ngModel]="employee?.password"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="tempatlahir" class="col-sm-4 form-control-label">Tempat Lahir</label>
+				<div class="col-sm-8">
+					<input type="text" name="placeOfBirth" required="" class="form-control"  [ngModel]="employee?.placeOfBirth"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="tanggallahir" class="col-sm-4 form-control-label">Tanggal Lahir</label>
+				<div class="col-sm-8">									
+					<datepicker ([ngModel])="employee?.dateOfBirth" name="dateOfBirth" required="" ></datepicker>
+					<!--<input type="date"   ([ngModel])="employee?.dateOfBirth" name="dateOfBirth" required="" class="form-control"/>-->
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="sex" class="col-sm-4 form-control-label">Jenis Kelamin</label>
+				<div class="col-sm-8">										
+					
+					<select name="sex" [ngModel]="employee?.sex" class="form-control" required="required">
+						<option value="m">Laki-laki</option>
+						<option value="f">Perempuan</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="religion" class="col-sm-4 form-control-label">Agama</label>
+				<div class="col-sm-8">										
+					<religion-dropdown [ngModel]="employee?.religion" [required]="true" name="religion" ></religion-dropdown>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="maritalstatus" class="col-sm-4 form-control-label">Status Perkawinan</label>
+				<div class="col-sm-8">															
+					<maritalstatus-dropdown [ngModel]="employee?.maritalStatus" [required]="true" name="maritalStatus" required=""></maritalstatus-dropdown>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="workingTime" class="col-sm-4 form-control-label">Masa Kerja</label>
+				<div class="col-sm-8">										
+					<input type="text" name="workingTime" required="" class="form-control"  [ngModel]="employee?.workingTime"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="nextRankPromotionDate" class="col-sm-4 form-control-label">KP Selanjutnya</label>
+				<div class="col-sm-8">	
+					<input type="date" name="nextRankPromotionDate"  precision="day" [ngModel]="employee?.nextRankPromotionDate"   required="" class="form-control"  />																			
+						
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="nextSalaryIncreasementDate" class="col-sm-4 form-control-label">KGB Selanjutnya</label>
+				<div class="col-sm-8">	
+					<input type="date" name="nextSalaryIncreasementDate"  precision="day" [ngModel]="employee?.nextSalaryIncreasementDate"   required="" class="form-control"  />																			
+				</div>
+			</div>
+														
+			
+		</div>
+		<div class="col-md-6">
+			<div class="form-group row">
+				<label for="oldEmployeeId" class="col-sm-4 form-control-label">NIP Lama</label>
+				<div class="col-sm-8">	
+					<input type="text" name="oldEmployeeId" required="" class="form-control"  [ngModel]="employee?.oldEmployeeId"/>
+				</div>
+			</div>								
+			<div class="form-group row">
+				<label for="status" class="col-sm-4 form-control-label">Status Kepegawaian</label>
+				<div class="col-sm-8">	
+					<employmentstatus-dropdown [ngModel]="employee?.employmentStatus" [required]="true" name="employmentStatus"></employmentstatus-dropdown>
+					
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="employmentType" class="col-sm-4 form-control-label">Jenis Kepegawaian</label>
+				<div class="col-sm-8">	
+					<employmenttype-dropdown [ngModel]="employee?.employmentType" [required]="true" name="employmentType" ></employmenttype-dropdown>
+					
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="jobTitle" class="col-sm-4 form-control-label">Jabatan</label>
+				<div class="col-sm-8">									
+					<textarea name="jobTitle" class="form-control" [ngModel]="employee?.jobTitle"> </textarea>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="startDateCPNS" class="col-sm-4 form-control-label">Tanggal TMT CPNS</label>
+				<div class="col-sm-8">	
+					<input type="date" name="startDateCPNS"  precision="day" [ngModel]="employee?.startDateCPNS"   required="" class="form-control"  />																			
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="startDatePNS" class="col-sm-4 form-control-label">Tanggal TMT PNS</label>
+				<div class="col-sm-8">	
+					<input type="date" name="startDatePNS"  precision="day" [ngModel]="employee?.startDatePNS"   required="" class="form-control"  />																			
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="retirementDate" class="col-sm-4 form-control-label">Tanggal Pensiun</label>
+				<div class="col-sm-8">	
+					<input type="date" name="retirementDate"  precision="day" [ngModel]="employee?.retirementDate"   required="" class="form-control"  />																			
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="unitOfWork" class="col-sm-4 form-control-label">Unit Kerja</label>
+				<div class="col-sm-8">	
+					<unitofwork-dropdown [ngModel]="employee?.unitOfWork" [required]="true" name="unitOfWork"></unitofwork-dropdown>					
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="unitOfWorkDescription" class="col-sm-4 form-control-label">Ket. Unit Kerja</label>
+				<div class="col-sm-8">	
+					<input type="text" name="unitOfWorkDescription" required="" class="form-control"  [ngModel]="employee?.unitOfWorkDescription"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="rank" class="col-sm-4 form-control-label">Pangkat - Gol/Ruang</label>
+				<div class="col-sm-8">	
+					<input type="text" name="rank" required="" class="form-control"  [ngModel]="employee?.rank"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="lastEducation" class="col-sm-4 form-control-label">Pendidikan Terakhir</label>
+				<div class="col-sm-8">	
+					<input type="text" name="lastEducation" required="" class="form-control"  [ngModel]="employee?.lastEducation"/>
+				</div>
+			</div>
+		</div>
+	</div>		
+	<div class="hidden">
+	
+	<button id="btnReset" type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button>
+	<button id="btnSave" class="btn btn-primary" type="submit">Save</button>
+	</div>										
+</form>
